@@ -9598,24 +9598,24 @@ inline void PrintTo(bool x, ::std::ostream* os) {
 GTEST_API_ void PrintTo(wchar_t wc, ::std::ostream* os);
 
 // Overloads for C strings.
-GTEST_API_ void PrintTo(const char* s, ::std::ostream* os);
-inline void PrintTo(char* s, ::std::ostream* os) {
-  PrintTo(ImplicitCast_<const char*>(s), os);
+GTEST_API_ void PrintTo(const char* s1, ::std::ostream* os);
+inline void PrintTo(char* s1, ::std::ostream* os) {
+  PrintTo(ImplicitCast_<const char*>(s1), os);
 }
 
 // signed/unsigned char is often used for representing binary data, so
 // we print pointers to it as void* to be safe.
-inline void PrintTo(const signed char* s, ::std::ostream* os) {
-  PrintTo(ImplicitCast_<const void*>(s), os);
+inline void PrintTo(const signed char* s1, ::std::ostream* os) {
+  PrintTo(ImplicitCast_<const void*>(s1), os);
 }
-inline void PrintTo(signed char* s, ::std::ostream* os) {
-  PrintTo(ImplicitCast_<const void*>(s), os);
+inline void PrintTo(signed char* s1, ::std::ostream* os) {
+  PrintTo(ImplicitCast_<const void*>(s1), os);
 }
-inline void PrintTo(const unsigned char* s, ::std::ostream* os) {
-  PrintTo(ImplicitCast_<const void*>(s), os);
+inline void PrintTo(const unsigned char* s1, ::std::ostream* os) {
+  PrintTo(ImplicitCast_<const void*>(s1), os);
 }
-inline void PrintTo(unsigned char* s, ::std::ostream* os) {
-  PrintTo(ImplicitCast_<const void*>(s), os);
+inline void PrintTo(unsigned char* s1, ::std::ostream* os) {
+  PrintTo(ImplicitCast_<const void*>(s1), os);
 }
 
 // MSVC can be configured to define wchar_t as a typedef of unsigned
@@ -9625,9 +9625,9 @@ inline void PrintTo(unsigned char* s, ::std::ostream* os) {
 // possibly causing invalid memory accesses.
 #if !defined(_MSC_VER) || defined(_NATIVE_WCHAR_T_DEFINED)
 // Overloads for wide C strings
-GTEST_API_ void PrintTo(const wchar_t* s, ::std::ostream* os);
-inline void PrintTo(wchar_t* s, ::std::ostream* os) {
-  PrintTo(ImplicitCast_<const wchar_t*>(s), os);
+GTEST_API_ void PrintTo(const wchar_t* s1, ::std::ostream* os);
+inline void PrintTo(wchar_t* s1, ::std::ostream* os) {
+  PrintTo(ImplicitCast_<const wchar_t*>(s1), os);
 }
 #endif
 
@@ -9653,9 +9653,9 @@ inline void PrintTo(const ::string& s, ::std::ostream* os) {
 }
 #endif  // GTEST_HAS_GLOBAL_STRING
 
-GTEST_API_ void PrintStringTo(const ::std::string&s, ::std::ostream* os);
-inline void PrintTo(const ::std::string& s, ::std::ostream* os) {
-  PrintStringTo(s, os);
+GTEST_API_ void PrintStringTo(const ::std::string&s1, ::std::ostream* os);
+inline void PrintTo(const ::std::string& s1, ::std::ostream* os) {
+  PrintStringTo(s1, os);
 }
 
 // Overloads for ::wstring and ::std::wstring.
@@ -9667,9 +9667,9 @@ inline void PrintTo(const ::wstring& s, ::std::ostream* os) {
 #endif  // GTEST_HAS_GLOBAL_WSTRING
 
 #if GTEST_HAS_STD_WSTRING
-GTEST_API_ void PrintWideStringTo(const ::std::wstring&s, ::std::ostream* os);
-inline void PrintTo(const ::std::wstring& s, ::std::ostream* os) {
-  PrintWideStringTo(s, os);
+GTEST_API_ void PrintWideStringTo(const ::std::wstring&s1, ::std::ostream* os);
+inline void PrintTo(const ::std::wstring& s1, ::std::ostream* os) {
+  PrintWideStringTo(s1, os);
 }
 #endif  // GTEST_HAS_STD_WSTRING
 

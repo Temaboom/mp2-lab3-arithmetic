@@ -9320,12 +9320,12 @@ void UniversalPrintArray(const wchar_t* begin, size_t len, ostream* os) {
 }
 
 // Prints the given C string to the ostream.
-void PrintTo(const char* s, ostream* os) {
-  if (s == NULL) {
+void PrintTo(const char* s1, ostream* os) {
+  if (s1 == NULL) {
     *os << "NULL";
   } else {
-    *os << ImplicitCast_<const void*>(s) << " pointing to ";
-    PrintCharsAsStringTo(s, strlen(s), os);
+    *os << ImplicitCast_<const void*>(s1) << " pointing to ";
+    PrintCharsAsStringTo(s1, strlen(s1), os);
   }
 }
 
@@ -9337,12 +9337,12 @@ void PrintTo(const char* s, ostream* os) {
 // wchar_t is implemented as a native type.
 #if !defined(_MSC_VER) || defined(_NATIVE_WCHAR_T_DEFINED)
 // Prints the given wide C string to the ostream.
-void PrintTo(const wchar_t* s, ostream* os) {
-  if (s == NULL) {
+void PrintTo(const wchar_t* s1, ostream* os) {
+  if (s1 == NULL) {
     *os << "NULL";
   } else {
-    *os << ImplicitCast_<const void*>(s) << " pointing to ";
-    PrintCharsAsStringTo(s, wcslen(s), os);
+    *os << ImplicitCast_<const void*>(s1) << " pointing to ";
+    PrintCharsAsStringTo(s1, wcslen(s1), os);
   }
 }
 #endif  // wchar_t is native
@@ -9354,8 +9354,8 @@ void PrintStringTo(const ::string& s, ostream* os) {
 }
 #endif  // GTEST_HAS_GLOBAL_STRING
 
-void PrintStringTo(const ::std::string& s, ostream* os) {
-  PrintCharsAsStringTo(s.data(), s.size(), os);
+void PrintStringTo(const ::std::string& s1, ostream* os) {
+  PrintCharsAsStringTo(s1.data(), s1.size(), os);
 }
 
 // Prints a ::wstring object.
@@ -9366,8 +9366,8 @@ void PrintWideStringTo(const ::wstring& s, ostream* os) {
 #endif  // GTEST_HAS_GLOBAL_WSTRING
 
 #if GTEST_HAS_STD_WSTRING
-void PrintWideStringTo(const ::std::wstring& s, ostream* os) {
-  PrintCharsAsStringTo(s.data(), s.size(), os);
+void PrintWideStringTo(const ::std::wstring& s1, ostream* os) {
+  PrintCharsAsStringTo(s1.data(), s1.size(), os);
 }
 #endif  // GTEST_HAS_STD_WSTRING
 
