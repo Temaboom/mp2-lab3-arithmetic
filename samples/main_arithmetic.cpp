@@ -8,7 +8,7 @@ int main()
 	setlocale(LC_CTYPE, "Russian");
 	string s1;
 	int f;
-	cout << "Input the value";
+	cout << "Input the value ";
 	getline(cin, s1);
 	s1 = unary_minus(s1);
 	Arithmetic Exp(s1);
